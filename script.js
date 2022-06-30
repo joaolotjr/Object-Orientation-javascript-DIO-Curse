@@ -1,9 +1,9 @@
 class BankAccount {
-    constructor(agency, number, type, balance) {
+    constructor(agency, number, type) {
     this.agency = agency
     this.number = number
     this.type = type
-    this._balance = balance
+    this._balance = 0
   }
 
   get balance() {
@@ -29,15 +29,15 @@ class BankAccount {
   }
 }
 
-class CheckingAccount {
-  constructor(agency, number, balance, creditCard) {
-    super(agency, number, balance);
+class CheckingAccount extends BankAccount{
+  constructor(agency, number, creditCard) {
+    super(agency, number);
     this.type = 'checking';
     this._creditCard = creditCard;
   }
 
   get creditCard(){
-    retur this._creditCard;
+    return this._creditCard;
   }
 
   set creditCard(value){
@@ -45,17 +45,17 @@ class CheckingAccount {
   }
 }
 
-class SavingsAccount {
-    constructor(agency, number, balance) {
-      super(agency, number, balance);
+class SavingsAccount extends BankAccount{
+    constructor(agency, number) {
+      super(agency, number);
       this.type = 'Savings';      
     }
     
   }
 
-  class UniversityAccount {
-    constructor(agency, number, balance) {
-      super(agency, number, balance);
+  class UniversityAccount extends BankAccount{
+    constructor(agency, number) {
+      super(agency, number);
       this.type = 'University';      
     }
     withdraw(value) {
